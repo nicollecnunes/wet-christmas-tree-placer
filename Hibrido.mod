@@ -10,7 +10,7 @@ string Origem[ANMs] = ...;
 
 int rf[ANMs][Pocos] = ...;
 
-dvar int custos[ANMs][Pocos];
+dvar float custos[ANMs][Pocos];
 dvar boolean x[ANMs][Pocos];
 
 minimize
@@ -27,6 +27,11 @@ subject to
 		    else {
       			rf[i][j] == 1;
     		}*/
+    		
+   	DisponibilidadeTemporal:
+  		forall(i in ANMs)
+  		  forall(j in Pocos)
+  		    x[i][j] * (DataNecessidadePocos[j] - DataDisponibilidadeANMS[i]) >= 0;
    
   	UmaArvorePorPoco:
   		forall(j in Pocos)
@@ -43,5 +48,5 @@ subject to
   		    
   	MatrizDeCustos:
   	forall(i in ANMs, j in Pocos)
-    	custos[i][j] == DistanciaDosPortos[j][Origem[i]];
+    	custos[i][j] == ((DistanciaDosPortos[j][Origem[i]] / 5000) + (DataNecessidadePocos[j] - DataDisponibilidadeANMS[i]));
 }
