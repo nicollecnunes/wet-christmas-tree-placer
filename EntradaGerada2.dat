@@ -1,13 +1,13 @@
 ANMs = {ANM1, ANM2, ANM3, ANM4, ANM5};
-Pocos = {P1, P2, P3, P4};
+Pocos = {P1, P2, P3, P4, P5};
 Portos = {RIO, SALVADOR, SANTOS, VITORIA, BELEM};  
 
 DataDisponibilidadeANMS = [2, 0, 26, 66, 10]; 
 DataNecessidadePocos = [1, 27, 95, 44];
 
-BIN_PodeAlocar = [[1, 1, 1, 1, 0],
+BIN_PodeAlocar = [[1, 1, 1, 1, 1],
                  [1, 1, 1, 1, 1],
-                 [1, 1, 0, 1, 1],  
+                 [1, 1, 1, 1, 1],  
                  [1, 1, 1, 1, 1]];
 
 Origem = [RIO, SALVADOR, SANTOS, VITORIA, BELEM]; 
